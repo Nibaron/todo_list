@@ -1,10 +1,13 @@
 import './App.css';
+import Addtask from './components/addtask.component';
+import Appbar from './components/appbar.component';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <>
+    <Appbar/>
+    <Addtask/>
+    </>
   );
 }
 
