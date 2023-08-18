@@ -14,9 +14,9 @@ export default function Appbar() {
             <span className="light"></span>
             <span className="medium"></span>
             <span className="dark activeTheme"></span>
-            <span className="gOne"></span>
-            <span className="gTwo"></span>
-            <span className="gThree"></span>
+            <span className="gradientOne"></span>
+            <span className="gradientTwo"></span>
+            <span className="gradientThree"></span>
         </div>
         </header>
     );
