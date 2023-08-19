@@ -2,6 +2,10 @@
 Open [https://todo-nibz.netlify.app/](https://todo-nibz.netlify.app/) to view it in your browser.
 
 
+![image](https://github.com/Nibaron/todo_list/assets/36547410/3dc87b34-1f9e-4149-8904-f4479967a1ac)
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
