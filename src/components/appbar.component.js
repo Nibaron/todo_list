@@ -2,9 +2,17 @@ import React, { useEffect, useState } from "react";
 import img_todo from "../assets/todo.png";
 
 export default function Appbar() {
-    const [theme, setTheme] = useState("medium");
+    const [theme, setTheme] = useState(() => {
+        // Retrieve theme from local storage when the component mounts
+        const storedTheme = localStorage.getItem("theme");
+        return storedTheme || "medium"; // Default to "medium" if no theme is stored
+    });
 
     useEffect(() => {
+        // Save the current theme to local storage
+        localStorage.setItem("theme", theme);
+
+        // Apply the current theme class to the document
         document.documentElement.removeAttribute("class");
         document.documentElement.classList.add(theme);
     }, [theme]);

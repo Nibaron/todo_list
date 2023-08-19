@@ -14,6 +14,8 @@ function App() {
 
   const [task, setTask] = useState({});
 
+  
+
   useEffect(()=>{
     localStorage.setItem("taskList", JSON.stringify(taskList))
   },[taskList]);
