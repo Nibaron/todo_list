@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# To DO List React APP
+Open [https://todo-nibz.netlify.app/](https://todo-nibz.netlify.app/) to view it in your browser.
 
 
 ## Available Scripts
