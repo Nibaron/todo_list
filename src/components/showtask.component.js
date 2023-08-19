@@ -1,4 +1,15 @@
-const Showtask = ({taskList, setTask}) => {
+const Showtask = ({taskList, setTaskList, task, setTask}) => {
+
+    const handleEdit =(id)=>{
+        const selectedTask = taskList.find( todo => todo.id === id);
+        //console.log(selectedTask);
+        setTask(selectedTask);
+    }
+
+    const handleDelete=(id)=>{
+        const updatedtaskList = taskList.filter( todo=> todo.id !== id );
+        setTaskList(updatedtaskList);
+    }
 
     return (
         <section className="showTask">
@@ -12,21 +23,31 @@ const Showtask = ({taskList, setTask}) => {
                 >
                     <span className="title">Todo</span>
                     <span className="count">{taskList.length}</span>
-                    <button onClick={()=>setTask([])} style={{ marginLeft: "auto" }} className="clearAll">
+                    <button
+                        onClick={() => setTaskList([])}
+                        style={{ marginLeft: "auto" }}
+                        className="clearAll"
+                    >
                         Clear All
                     </button>
                 </div>
             </div>
             <ul>
-                {taskList.map((task) => {
+                {taskList.map((todo) => {
                     return (
-                        <li key={task.id}>
+                        <li key={todo.id}>
                             <p>
-                                <span className="name"> {task.name}</span>
-                                <span className="time"> {task.time}</span>
+                                <span className="name"> {todo.name}</span>
+                                <span className="time"> {todo.time}</span>
                             </p>
-                            <i className="bi bi-pencil-square"></i>
-                            <i className="bi bi-trash"></i>
+                            <i
+                                onClick={() => handleEdit(todo.id)}
+                                className="bi bi-pencil-square"
+                            ></i>
+                            <i
+                                onClick={() => handleDelete(todo.id)}
+                                className="bi bi-trash"
+                            ></i>
                         </li>
                     );
                 })}

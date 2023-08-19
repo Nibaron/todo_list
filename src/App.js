@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
 
-  const [taskList, setTask] = useState([
+  const [taskList, setTaskList] = useState([
       { 
           id: 1001, 
           name: "Wake Up Early", 
@@ -32,11 +32,13 @@ function App() {
     },
   ]);
 
+  const [task, setTask] = useState({});
+
   return (
     <>
     <Appbar/>
-    <Addtask taskList={taskList} setTask={setTask}/>
-    <Showtask taskList={taskList} setTask={setTask}/>
+    <Addtask taskList={taskList} setTaskList={setTaskList} task={task} setTask={setTask}/>
+    <Showtask taskList={taskList} setTaskList={setTaskList} task={task} setTask={setTask}/>
     <Footer/>
     </>
   );

@@ -1,33 +1,49 @@
-const Addtask = ({taskList, setTask}) => {
-
+const Addtask = ({ taskList, setTaskList, task, setTask }) => {
     const handleSubmit = (event) => {
         //create id, task, date
-        
         event.preventDefault();
-        const date = new Date();
-        const task = {
-            id: date.getTime(),
-            name: event.target.task.value,
-            time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
-        };
-        setTask([...taskList, task]);
-        event.target.task.value="";
+
+        if (task.id) {
+            const date = new Date();
+            const updatedtaskList = taskList.map((todo) =>
+                todo.id === task.id
+                    ? {
+                          id: task.id,
+                          name: task.name,
+                          time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`
+                      }
+                    : todo
+            );
+            setTaskList(updatedtaskList);
+            setTask({});
+        } else {
+            const date = new Date();
+            const newTask = {
+                id: date.getTime(),
+                name: task.name,
+                time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
+            };
+            setTaskList([...taskList, newTask]);
+            setTask({});
+        }
     };
-    
+
     return (
         <section className="addTask">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="task"
+                    value={task.name || ""}
                     autoComplete="off"
                     placeholder="add task"
                     maxLength={25}
+                    onChange={ event => setTask({ ...task, name: event.target.value }) }
                 />
                 <button type="submit">Add</button>
             </form>
         </section>
     );
-}       
- 
+};
+
 export default Addtask;
